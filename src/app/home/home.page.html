@@ -1,0 +1,126 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <strong>Formulario</strong>
+    <form [formGroup]="formulario" (submit)="enviar()" >
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input formControlName="nome"></ion-input>
+          <ion-note *ngIf="formulario.controls.nome.touched" slot="error">
+            <span *ngIf="formulario.controls.nome.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> Nome é obrigatório</span>
+            <span *ngIf="formulario.controls.nome.errors?.['minlength']"><ion-icon name="alert-outline"></ion-icon> No mínimo 3 caracteres</span>
+            <span *ngIf="formulario.controls.nome.errors?.['naoPodeSerBughi']"><ion-icon name="alert-outline"></ion-icon> Ninguém se chama bughi, muda isso aí.</span>
+          </ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Sobrenome</ion-label>
+          <ion-input formControlName="sobrenome"></ion-input>
+          <ion-note *ngIf="formulario.controls.sobrenome.touched" slot="error">
+            <span *ngIf="formulario.controls.sobrenome.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> sobrenome é obrigatório</span>
+            <span *ngIf="formulario.controls.sobrenome.errors?.['minlength']"><ion-icon name="alert-outline"></ion-icon> No mínimo 3 caracteres</span>
+            <span *ngIf="formulario.controls.sobrenome.errors?.['naoPodeSerBughi']"><ion-icon name="alert-outline"></ion-icon> Ninguém se chama bughi, muda isso aí.</span>
+          </ion-note>
+        </ion-item>
+        <!-- <ion-item>
+          <ion-label position="floating">Equipe favorita</ion-label>
+          <ion-select formControlName="equipe">
+            <ion-select-option *ngFor="let equipe of equipes">{{equipe}}</ion-select-option>
+          </ion-select>
+        </ion-item> -->
+        <ion-item>
+          <ion-label position="floating">CEP</ion-label>
+          <ion-input formControlName="cep"></ion-input>
+          <ion-note *ngIf="formulario.controls.cep.touched" slot="error">
+            <span *ngIf="formulario.controls.cep.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> cep é obrigatório</span>
+            <span *ngIf="formulario.controls.cep.errors?.['minlength']"><ion-icon name="alert-outline"></ion-icon> No mínimo 3 caracteres</span>
+          </ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Estado</ion-label>
+          <ion-input formControlName="cep"></ion-input>
+          <ion-note *ngIf="formulario.controls.cep.touched" slot="error">
+            <span *ngIf="formulario.controls.cep.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> cep é obrigatório</span>
+            <span *ngIf="formulario.controls.cep.errors?.['minlength']"><ion-icon name="alert-outline"></ion-icon> No mínimo 3 caracteres</span>
+          </ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Cidade</ion-label>
+          <ion-input formControlName="cep"></ion-input>
+          <ion-note *ngIf="formulario.controls.cep.touched" slot="error">
+            <span *ngIf="formulario.controls.cep.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> cep é obrigatório</span>
+            <span *ngIf="formulario.controls.cep.errors?.['minlength']"><ion-icon name="alert-outline"></ion-icon> No mínimo 3 caracteres</span>
+          </ion-note>
+          <ion-item>
+            <ion-label position="floating">Rua</ion-label>
+            <ion-input formControlName="cep"></ion-input>
+            <ion-note *ngIf="formulario.controls.cep.touched" slot="error">
+              <span *ngIf="formulario.controls.cep.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> cep é obrigatório</span>
+              <span *ngIf="formulario.controls.cep.errors?.['minlength']"><ion-icon name="alert-outline"></ion-icon> No mínimo 3 caracteres</span>
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Bairro</ion-label>
+            <ion-input formControlName="cep"></ion-input>
+            <ion-note *ngIf="formulario.controls.cep.touched" slot="error">
+              <span *ngIf="formulario.controls.cep.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> cep é obrigatório</span>
+              <span *ngIf="formulario.controls.cep.errors?.['minlength']"><ion-icon name="alert-outline"></ion-icon> No mínimo 3 caracteres</span>
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Número</ion-label>
+            <ion-input formControlName="cep"></ion-input>
+            <ion-note *ngIf="formulario.controls.cep.touched" slot="error">
+              <span *ngIf="formulario.controls.cep.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> cep é obrigatório</span>
+              <span *ngIf="formulario.controls.cep.errors?.['minlength']"><ion-icon name="alert-outline"></ion-icon> No mínimo 3 caracteres</span>
+            </ion-note>
+          </ion-item>
+        </ion-item>
+          <ion-radio-group formControlName="fruta">
+            <ion-item (click)="exibeodigite()">
+              <ion-label>Masculino</ion-label>
+              <ion-radio  slot="end" value="Masculino"></ion-radio>
+            </ion-item>
+        
+            <ion-item (click)="exibeodigite()">
+              <ion-label>Feminino</ion-label>
+              <ion-radio slot="end" value="Feminino"></ion-radio>
+            </ion-item>
+
+            <ion-item (click)="exibeodigite()">
+              <ion-label>Não Informado</ion-label>
+              <ion-radio slot="end" value="NaoInformado"></ion-radio>
+            </ion-item>
+            <ion-item (click)="teste()">
+              <ion-label>Informar outro</ion-label>
+              <ion-radio slot="end" value="Outro" (ionSelect)="teste()"></ion-radio>
+            </ion-item>
+            </ion-radio-group>
+      </ion-list>
+      <ion-item>
+        <ion-label position="fixed"  [hidden]="!showPassword"> Digite</ion-label>
+        <ion-input  [hidden]="!showPassword" formControlName="genero"></ion-input>
+        <ion-input formControlName="sobrenome"></ion-input>
+          <ion-note *ngIf="formulario.controls.sobrenome.touched" slot="error">
+            <span *ngIf="formulario.controls.sobrenome.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> genero é obrigatório</span>
+            <span *ngIf="formulario.controls.sobrenome.errors?.['minlength']"><ion-icon name="alert-outline"></ion-icon> No mínimo 3 caracteres</span>
+            <span *ngIf="formulario.controls.sobrenome.errors?.['naoPodeSerBughi']"><ion-icon name="alert-outline"></ion-icon> Ninguém se chama bughi, muda isso aí.</span>
+          </ion-note>
+      </ion-item>
+      <ion-button type="submit">Enviar</ion-button>
+    </form>
+  </div>
+</ion-content>
